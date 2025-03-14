@@ -19,15 +19,15 @@ samples, guidance on mobile development, and a full API reference. -->
 ## Installation
 1. Install Flutter SDK: [Installation Guide](https://flutter.dev/docs/get-started/install)
 2. Clone the repository:
-  ```bash
-  git clone https://github.com/luckstraw/Mobap.git
-  ```
+  ```bash
+  git clone https://github.com/luckstraw/Mobap.git
+  ```
 3. Navigate to the project folder and install dependencies:
-  ```bash
-  cd myapp
-  flutter pub get
-  ```
+  ```bash
+  cd myapp
+  flutter pub get
+  ```
 4. Run the app on your desired platform:
-  ```bash
-  flutter run
-  ```
+  ```bash
+  flutter run
+  ```
