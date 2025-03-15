@@ -1,86 +1,159 @@
 import 'package:flutter/material.dart';
+import 'dart:ui';
+import 'text_utils.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool isLoginForm = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          _buildBackground(),
-          Padding(
-            padding: const EdgeInsets.only(top: 200.0),
-            child: _buildLoginForm(),
-          ),
-        ],
-      )
-    );
-  }
-
-  Widget _buildBackground() {
-    return Container(
-      height: double.infinity,
-      width: double.infinity,
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(colors: [Color(0xffB81736),
-        Color(0xff281537)]),
-      ),
-      child: const Padding(
-        padding: EdgeInsets.only(top: 60.0, left: 22),
-        child: Text('Hello\nSign in!', style: TextStyle(fontSize: 30, color:
-        Colors.white, fontWeight: FontWeight.bold)),
-      ),
-    );
-  }
-
-  Widget _buildLoginForm() {
-    return Container(
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.only(topLeft: Radius.circular(40),
-        topRight: Radius.circular(40)),
-        color: Colors.white,
-        ),
+      body: Container(
         height: double.infinity,
         width: double.infinity,
-        child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 18.0),
-        child: Column(
-          children: [
-            const SizedBox(height: 40),
-            _buildTextField('Gmail', Icons.check),
-            const SizedBox(height: 20),
-            _buildTextField('Password', Icons.visibility_off),
-            const SizedBox(height: 40),
-            _buildSignInButton(),
-          ],
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/sample_bg.jpeg'),
+            fit: BoxFit.fill,
+          ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildTextField(String label, IconData icon) {
-    return TextField(
-      decoration: InputDecoration(
-        suffixIcon: Icon(icon, color: Colors.grey),
-        label: Text(label, style: const TextStyle(fontWeight:
-        FontWeight.bold, color: Color(0xffB81736))),
-      ),
-    );
-  }
-
-  Widget _buildSignInButton() {
-    return Container(
-      height: 55,
-      width: 300,
-      decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(30),
-      gradient: const LinearGradient(colors: [Color(0xffB81736),
-        Color(0xff281537)]),
-      ),
-      child: const Center(
-        child: Text('SIGN IN', style: TextStyle(fontWeight: FontWeight.bold,
-        fontSize: 20, color: Colors.white)),
+        alignment: Alignment.center,
+        child: Container(
+          height: 550,
+          width: double.infinity,
+          margin: const EdgeInsets.symmetric(horizontal: 30),
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.transparent),
+            borderRadius: BorderRadius.circular(20),
+            color: Color.fromRGBO(0, 0, 0, 0.3),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaY: 15, sigmaX: 15),
+              child: Padding(
+                padding: const EdgeInsets.all(25),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Spacer(),
+                    Center(
+                      child: TextUtil(
+                        text: isLoginForm ? "Login" : "Sign Up",
+                        weight: FontWeight.w700,
+                        size: 30,
+                      ),
+                    ),
+                    Center(
+                      child: TextUtil(
+                        text: isLoginForm
+                            ? "Welcome back!"
+                            : "Create your account!",
+                        size: 15,
+                        weight: FontWeight.w700,
+                      ),
+                    ),
+                    const Spacer(),
+                    const TextUtil(text: "Email"),
+                    Container(
+                      height: 35,
+                      decoration: const BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(color: Colors.white),
+                        ),
+                      ),
+                      child: TextFormField(
+                        style: const TextStyle(color: Colors.white),
+                        decoration: const InputDecoration(
+                          suffixIcon: Icon(Icons.mail, color: Colors.white),
+                          fillColor: Colors.white,
+                          border: InputBorder.none,
+                        ),
+                      ),
+                    ),
+                    const Spacer(),
+                    const TextUtil(text: "Password"),
+                    Container(
+                      height: 35,
+                      decoration: const BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(color: Colors.white),
+                        ),
+                      ),
+                      child: TextFormField(
+                        style: const TextStyle(color: Colors.white),
+                        decoration: const InputDecoration(
+                          suffixIcon: Icon(Icons.lock, color: Colors.white),
+                          fillColor: Colors.white,
+                          border: InputBorder.none,
+                        ),
+                      ),
+                    ),
+                    if (!isLoginForm) ...[
+                      const Spacer(),
+                      const TextUtil(text: "Confirm Password"),
+                      Container(
+                        height: 35,
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(color: Colors.white),
+                          ),
+                        ),
+                        child: TextFormField(
+                          style: const TextStyle(color: Colors.white),
+                          decoration: const InputDecoration(
+                            suffixIcon: Icon(Icons.lock, color: Colors.white),
+                            fillColor: Colors.white,
+                            border: InputBorder.none,
+                          ),
+                        ),
+                      ),
+                    ],
+                    const Spacer(),
+                    Container(
+                      height: 40,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      alignment: Alignment.center,
+                      child: TextUtil(
+                        text: isLoginForm ? "Log In" : "Sign Up",
+                        color: Colors.black,
+                      ),
+                    ),
+                    const Spacer(),
+                    Center(
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isLoginForm = !isLoginForm;
+                          });
+                        },
+                        child: TextUtil(
+                          text: isLoginForm
+                              ? "Don't have an account? SIGN UP"
+                              : "Already have an account? LOG IN",
+                          size: 12,
+                          weight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                    const Spacer(),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
