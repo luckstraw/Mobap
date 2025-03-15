@@ -17,7 +17,7 @@ samples, guidance on mobile development, and a full API reference. -->
 
 <!-- -->
 
-# Mobap
+<!-- # Mobap -->
 
 <!-- ## Installation
 1. Install Flutter SDK: [Installation Guide](https://flutter.dev/docs/get-started/install)
@@ -35,10 +35,5 @@ samples, guidance on mobile development, and a full API reference. -->
   flutter run
   ``` -->
 
-## Output
-
-### LoginForm
-![LoginForm](/assets/LoginForm.jpg)
-
-### SignUpForm
-![SignUpForm](/assets/SignUpForm.jpg)
+# Output
+![Output](/assets/Output.png)
