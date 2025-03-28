@@ -35,5 +35,13 @@ samples, guidance on mobile development, and a full API reference. -->
   flutter run
   ``` -->
 
-# Output
-![Output](/assets/Output.png)
+<!-- # Output
+![Output](/assets/Output.png) -->
+
+# Mobap: Laboratory Activities Repository
+
+This repository contains all the laboratory activities for the **Mobile Application Development** (Mobap) subject. 
+
+## 📂 **Contents**
+1. [Lab 1](#lab-1)
+2. [How to clone the  ]
