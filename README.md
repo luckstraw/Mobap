@@ -24,17 +24,14 @@ git clone https://github.com/luckstraw/Mobap.git
 cd Mobap
 ```
 
-2. **Get the dependencies:**
-```bash
-flutter pub get
-```
-
-3. **Use `git checkout` to switch to the desired branch for each lab**
+2. **Use `git checkout` to switch to the desired branch for each lab**
 ```bash
 git checkout Lab1 # Replace with the lab folder you want to access
 ```
 
+3. **Get the dependencies:**
+```bash
+flutter pub get
+```
+
 4. **Then Follow the Instruction in the README.md of that branch**
-
-
-
