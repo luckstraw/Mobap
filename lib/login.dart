@@ -16,7 +16,7 @@ class _LoginScreenState extends State<LoginScreen> {
   String message = "";
 
   Future<void> login() async {
-    var url = Uri.parse("http://192.168.1.19/mobap/login.php");
+    var url = Uri.parse("http://192.168.1.19/backend/server/login.php");
     var response = await http.post(url, body: {
       "email": emailController.text,
       "password": passwordController.text,

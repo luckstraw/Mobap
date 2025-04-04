@@ -17,7 +17,7 @@ class _SignupScreenState extends State<SignupScreen> {
   String message = "";
 
   Future<void> signup() async {
-    var url = Uri.parse("http://192.168.1.19/mobap/signup.php");
+    var url = Uri.parse("http://192.168.1.19/backend/server/signup.php");
     var response = await http.post(url, body: {
       "username": usernameController.text,
       "email": emailController.text,
