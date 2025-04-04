@@ -5,12 +5,13 @@ To view the source code for each laboratory switch to the corresponding branch
 
 ## 📂 **Contents**
 1. [Lab 1](https://github.com/luckstraw/Mobap/tree/Lab1)
-2. [How to Run Each Lab](#-how-to-run-each-lab)
+2. [Lab 2](https://github.com/luckstraw/Mobap/tree/Lab2)
 
 ## 🚀 **How to Run Each Lab**
 
 ### Prerequisites
 - **Flutter SDK** [Installation Guide](https://flutter.dev/docs/get-started/install)
+- **XAMPP**
 - **Device or Emulator**
 
 ### General Steps
