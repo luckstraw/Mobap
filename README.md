@@ -1,37 +1,40 @@
-# Mobap: Laboratory Activities Repository
+# Lab 3
+Flutter CRUD App with Firbase
 
-This repository contains all the laboratory activities for the **Mobile Application Development** (Mobap) subject.  
-To view the source code for each laboratory switch to the corresponding branch
+## Output
 
-## 📂 **Contents**
-1. [Lab 1](https://github.com/luckstraw/Mobap/tree/Lab1)
-2. [Lab 2](https://github.com/luckstraw/Mobap/tree/Lab2)
+<div align="center">
+  <img src="/assets/UI.png" alt="Phone Screen" height="600">
+</div>
 
-## 🚀 **How to Run Each Lab**
+<div align="center">
+  <img src="/assets/database.png" alt="Phone Screen">
+</div>
 
-### Prerequisites
-- **Flutter SDK** [Installation Guide](https://flutter.dev/docs/get-started/install)
-- **XAMPP**
-- **Device or Emulator**
+## How to Run
 
-### General Steps
+1. If you have't already, [install the Firebase CLI](https://firebase.google.com/docs/cli#setup_update_cli)
 
-1. **Clone the repository then navigate to the directory:**:
-```bash
-git clone https://github.com/luckstraw/Mobap.git
-```
-```bash
-cd Mobap
-```
+2. Log into Firebase using your Google account by running the following command:
+    ```bash
+    firebase login
+    ```
+3. Install the FlutterFire CLI by running the following command from any directory:
+    ```bash
+    dart pub global activate flutterfire_cli
+    ```
+4. Go to [Firebase Console](https://console.firebase.google.com/) and create a project. Build Firestore database there
 
-2. **Use `git checkout` to switch to the desired branch for each lab**
-```bash
-git checkout Lab1 # Replace with the lab folder you want to access
-```
+5. Generate the firebase_options.dart located at `lib`:
+    ```powershell
+    flutterfire configure
+    ```
 
-3. **Get the dependencies:**
-```bash
-flutter pub get
-```
+6. If aske to `reuse the values in your existing 'firebase.json' file to configure your project?` select `no`
 
-4. **Then Follow the Instruction in the README.md of that branch**
+7. Then pick the project you made in the firebase console at **step 4**
+
+8. Open/Connect your device and run:
+    ```bash
+    flutter run
+    ```
