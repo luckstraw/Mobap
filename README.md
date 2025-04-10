@@ -4,6 +4,10 @@ Flutter CRUD App with Firbase
 ## Output
 
 <div align="center">
+  <a href="https://raw.githubusercontent.com/luckstraw/Mobap/Lab3/Mobap.apk">Download APK File</a>
+</div>
+
+<div align="center">
   <img src="/assets/UI.png" alt="Phone Screen" height="600">
 </div>
 
@@ -25,12 +29,12 @@ Flutter CRUD App with Firbase
     ```
 4. Go to [Firebase Console](https://console.firebase.google.com/) and create a project. Build Firestore database there
 
-5. Generate the firebase_options.dart located at `lib`:
+5. Go to your project's root directory and Generate the firebase_options.dart located at `lib`:
     ```powershell
     flutterfire configure
     ```
 
-6. If aske to `reuse the values in your existing 'firebase.json' file to configure your project?` select `no`
+6. If ask to `reuse the values in your existing 'firebase.json' file to configure your project?` select `no`
 
 7. Then pick the project you made in the firebase console at **step 4**
 
