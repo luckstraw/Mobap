@@ -74,4 +74,6 @@ app.*.map.json
 # VS Code related
 .vscode/
 
-lib/firebase_options.dart
+
+###############################
+/lib/firebase_options.dart
