@@ -8,7 +8,7 @@ Online Shopping App
 </div>
 
 <div align="center">
-  <img src="/assets/DB.png" alt="Database">
+  <img src="/assets/DB.png" alt="Database" width="600">
 </div>
 
 ## How to Run
