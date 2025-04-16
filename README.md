@@ -7,6 +7,7 @@ To view the source code for each laboratory switch to the corresponding branch
 1. [Lab 1](https://github.com/luckstraw/Mobap/tree/Lab1)
 2. [Lab 2](https://github.com/luckstraw/Mobap/tree/Lab2)
 3. [Lab 3](https://github.com/luckstraw/Mobap/tree/Lab3)
+4. [Lab 4](https://github.com/luckstraw/Mobap/tree/Lab4)
 
 ## 🚀 **How to Run Each Lab**
 
