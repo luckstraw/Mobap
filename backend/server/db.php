@@ -1,12 +1,38 @@
 <?php
-    $host = "localhost";
-    $db = "root";
-    $user = "";
-    $pass = "mobap_lab6_db";
+header('Content-Type: application/json');
+error_reporting(0);
 
-    $conn = new mysqli($host, $user, $pass, $db);
+$servername = "localhost";
+$username = "root";  // Your database username
+$password = "";      // Your database password
+$dbname = "mobap_lab6_db";   // Your database name
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+$conn = new mysqli($servername, $username, $password, $dbname);
+$conn->set_charset("utf8mb4");
+
+// Enable strict mode
+$conn->query("SET sql_mode = 'STRICT_ALL_TABLES'");
+
+if ($conn->connect_error) {
+    die(json_encode([
+        "status" => "error",
+        "message" => "Connection failed"
+    ]));
+}
+
+// Create users table if it doesn't exist
+$sql = "CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)";
+
+if (!$conn->query($sql)) {
+    die(json_encode([
+        "status" => "error",
+        "message" => "Table creation failed: " . $conn->error
+    ]));
+}
 ?>
