@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class AuthService {
-  final String baseUrl = 'http://192.168.1.19/backend3/server'; // Update with your backend URL
+  final String baseUrl = 'http://mobap.infinityfreeapp.com/server2'; // Update with your backend URL
 
   // Login user
   Future<Map<String, dynamic>> loginUser(String email, String password) async {
@@ -45,6 +45,7 @@ class AuthService {
         return {'status': 'error', 'message': 'Server error'};
       }
     } catch (e) {
+      print('Registration Error: $e');
       return {'status': 'error', 'message': 'Connection error'};
     }
   }

@@ -2,10 +2,10 @@
 header('Content-Type: application/json');
 error_reporting(0);
 
-$servername = "localhost";
-$username = "root";  // Your database username
-$password = "";      // Your database password
-$dbname = "mobap_lab6_db";   // Your database name
+$servername = "sql309.infinityfree.com";
+$username = "if0_39066193";  // Your database username
+$password = "E---------K";      // Your database password
+$dbname = "if0_39066193_mobap_db_lab6";   // Your database name
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 $conn->set_charset("utf8mb4");
