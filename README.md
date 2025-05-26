@@ -3,7 +3,7 @@
 ## Output:
 
 <div align="center">
-  <img src="/assets/Fig1.png" alt="Phone Screen" width="700">
+  <img src="/assets/Fig1.png" alt="Phone Screen" width="450">
 </div>
 
 <div align="center">
@@ -16,9 +16,9 @@
 
 ## URL of deployed PHP API endpoints
 
-http://mobap.infinityfreeapp.com/server2/db.php
-http://mobap.infinityfreeapp.com/server2/delete_user.php
-http://mobap.infinityfreeapp.com/server2/get_user.php
-http://mobap.infinityfreeapp.com/server2/login.php
-http://mobap.infinityfreeapp.com/server2/register.php
-http://mobap.infinityfreeapp.com/server2/update_user.php
+http://mobap.infinityfreeapp.com/server2/db.php  
+http://mobap.infinityfreeapp.com/server2/delete_user.php  
+http://mobap.infinityfreeapp.com/server2/get_user.php  
+http://mobap.infinityfreeapp.com/server2/login.php  
+http://mobap.infinityfreeapp.com/server2/register.php  
+http://mobap.infinityfreeapp.com/server2/update_user.php 
