@@ -1,13 +1,23 @@
 <?php
 include 'db.php';
 
-$data = json_decode(file_get_contents("php://input"));
-$id = $data->id;
-$sql = "DELETE FROM users WHERE id=$id";
+$data = json_decode(file_get_contents('php://input'), true);
+$id = (int)$data['id'];  // Cast to integer
 
-if ($conn->query($sql)) {
-    echo json_encode(["status" => "deleted"]);
-} else {
-    echo json_encode(["status" => "error"]);
+if (!$id) {
+    echo json_encode(['status' => 'error', 'message' => 'Missing user ID']);
+    exit;
 }
+
+$stmt = $conn->prepare("DELETE FROM users WHERE id = ?");
+$stmt->bind_param("i", $id);
+
+if ($stmt->execute()) {
+    echo json_encode(['status' => 'success', 'message' => 'User deleted successfully']);
+} else {
+    echo json_encode(['status' => 'error', 'message' => 'Failed to delete user']);
+}
+
+$stmt->close();
+$conn->close();
 ?>

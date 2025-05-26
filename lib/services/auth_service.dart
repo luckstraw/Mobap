@@ -16,18 +16,13 @@ class AuthService {
         }),
       );
 
-
       if (response.statusCode == 200) {
-        try {
-          return jsonDecode(response.body);
-        } catch (e) {
-          return {'status': 'error', 'message': 'Invalid server response format'};
-        }
+        return jsonDecode(response.body);
       } else {
-        return {'status': 'error', 'message': 'Server error: ${response.statusCode}\nResponse: ${response.body}'};
+        return {'status': 'error', 'message': 'Server error'};
       }
     } catch (e) {
-      return {'status': 'error', 'message': e.toString()};
+      return {'status': 'error', 'message': 'Connection error'};
     }
   }
 
@@ -44,18 +39,13 @@ class AuthService {
         }),
       );
 
-
       if (response.statusCode == 200) {
-        try {
-          return jsonDecode(response.body);
-        } catch (e) {
-          return {'status': 'error', 'message': 'Invalid server response format'};
-        }
+        return jsonDecode(response.body);
       } else {
-        return {'status': 'error', 'message': 'Server error: ${response.statusCode}\nResponse: ${response.body}'};
+        return {'status': 'error', 'message': 'Server error'};
       }
     } catch (e) {
-      return {'status': 'error', 'message': e.toString()};
+      return {'status': 'error', 'message': 'Connection error'};
     }
   }
 
@@ -67,16 +57,10 @@ class AuthService {
         headers: {'Content-Type': 'application/json'},
       );
 
-
       if (response.statusCode == 200) {
-        try {
-          return jsonDecode(response.body);
-        } catch (e) {
-          return [];
-        }
-      } else {
-        return [];
+        return jsonDecode(response.body);
       }
+      return [];
     } catch (e) {
       return [];
     }
@@ -85,51 +69,41 @@ class AuthService {
   // Update user
   Future<Map<String, dynamic>> updateUser(int userId, Map<String, dynamic> userData) async {
     try {
-      final response = await http.put(
+      final response = await http.post( // Changed from put to post since PHP doesn't handle PUT well
         Uri.parse('$baseUrl/update_user.php'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'id': userId,
-          ...userData,
+          'username': userData['username'],
         }),
       );
 
-
       if (response.statusCode == 200) {
-        try {
-          return jsonDecode(response.body);
-        } catch (e) {
-          return {'status': 'error', 'message': 'Invalid server response format'};
-        }
+        return jsonDecode(response.body);
       } else {
-        return {'status': 'error', 'message': 'Server error: ${response.statusCode}\nResponse: ${response.body}'};
+        return {'status': 'error', 'message': 'Server error'};
       }
     } catch (e) {
-      return {'status': 'error', 'message': e.toString()};
+      return {'status': 'error', 'message': 'Connection error'};
     }
   }
 
   // Delete user
   Future<Map<String, dynamic>> deleteUser(int userId) async {
     try {
-      final response = await http.delete(
+      final response = await http.post( // Changed from delete to post since PHP doesn't handle DELETE well
         Uri.parse('$baseUrl/delete_user.php'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({'id': userId}),
       );
 
-
       if (response.statusCode == 200) {
-        try {
-          return jsonDecode(response.body);
-        } catch (e) {
-          return {'status': 'error', 'message': 'Invalid server response format'};
-        }
+        return jsonDecode(response.body);
       } else {
-        return {'status': 'error', 'message': 'Server error: ${response.statusCode}\nResponse: ${response.body}'};
+        return {'status': 'error', 'message': 'Server error'};
       }
     } catch (e) {
-      return {'status': 'error', 'message': e.toString()};
+      return {'status': 'error', 'message': 'Connection error'};
     }
   }
 }

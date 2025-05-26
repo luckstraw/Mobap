@@ -29,8 +29,9 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  Future<void> _deleteUser(int userId) async {
-    final response = await _authService.deleteUser(userId);
+  Future<void> _deleteUser(dynamic userId) async {
+    final id = int.parse(userId.toString());
+    final response = await _authService.deleteUser(id);
     if (!mounted) return;
 
     if (response['status'] == 'success') {
@@ -82,8 +83,9 @@ class _HomeScreenState extends State<HomeScreen> {
               if (formKey.currentState!.validate()) {
                 Navigator.pop(dialogContext);
                 
+                final id = int.parse(user['id'].toString());
                 final response = await _authService.updateUser(
-                  user['id'],
+                  id,
                   {'username': usernameController.text},
                 );
 
@@ -140,6 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   final user = _users[index];
                   return ListTile(
                     title: Text(user['username']),
+                    subtitle: Text(user['email']),
                     trailing: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -151,19 +154,19 @@ class _HomeScreenState extends State<HomeScreen> {
                           icon: const Icon(Icons.delete),
                           onPressed: () => showDialog(
                             context: context,
-                            builder: (context) => AlertDialog(
+                            builder: (dialogContext) => AlertDialog(
                               title: const Text('Delete User'),
                               content: Text(
                                 'Are you sure you want to delete ${user['username']}?',
                               ),
                               actions: [
                                 TextButton(
-                                  onPressed: () => Navigator.pop(context),
+                                  onPressed: () => Navigator.pop(dialogContext),
                                   child: const Text('Cancel'),
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.pop(context);
+                                    Navigator.pop(dialogContext);
                                     _deleteUser(user['id']);
                                   },
                                   child: const Text(
