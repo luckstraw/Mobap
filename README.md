@@ -10,6 +10,7 @@ To view the source code for each laboratory switch to the corresponding branch
 4. [Lab 4](https://github.com/luckstraw/Mobap/tree/Lab4)
 5. [Lab 5](https://github.com/luckstraw/Mobap/tree/Lab5)
 6. [Lab 6](https://github.com/luckstraw/Mobap/tree/Lab6)
+6. [Lab 7](https://github.com/luckstraw/Mobap/tree/Lab7)
 
 ## 🚀 **How to Run Each Lab**
 
@@ -19,6 +20,7 @@ To view the source code for each laboratory switch to the corresponding branch
 - **Firebase Account**
 - **Device or Emulator**
 - **Infinity Free Acccount**
+- **Emailjs Account**
 
 ### General Steps
 
