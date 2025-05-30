@@ -34,7 +34,9 @@ cd Mobap
 
 2. **Use `git checkout` to switch to the desired branch for each lab**
 ```bash
-git checkout Lab1 # Replace with the lab folder you want to access
+git fetch --all # Fetch all the remote branch first
+
+git checkout -b Lab1 origin/Lab1 # Replace with the lab folder you want to access
 ```
 
 3. **Get the dependencies:**
